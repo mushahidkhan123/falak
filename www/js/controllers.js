@@ -169,7 +169,7 @@ function ($scope, $stateParams, $state, $firebase, sharedList, $firebaseArray, $
  
 }
  	 			}) 
-	 		})
+	 		}) 
 
 	 	$scope.openReviews = function() {
 	 		console.log("Opening reviews");
