@@ -1,0 +1,32 @@
+ 
+
+<ion-view title="Sign Up" id="page2">
+  <ion-content padding="true" class="has-header">
+ 
+    <form id="signUp-form8" class="list">
+      <label class="item item-input" id="signUp-input9">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="" ng-model="name">
+      </label>
+      <label class="item item-input" id="signUp-input10">
+        <span class="input-label">E-mail Address</span>
+        <input type="email" placeholder="" ng-model="email">
+      </label>
+      <label class="item item-input" id="signUp-input11">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="" ng-model="password">
+      </label>
+      <label class="item item-input" id="signUp-input12">
+        <span class="input-label">Phone Number</span>
+        <input type="tel" placeholder="" ng-model="phoneNumber">
+      </label>
+<!--       <ion-checkbox ng-model="isChecked">Sign up as Chef</ion-checkbox>
+ -->      <label class="item item-input" id="signUp-input13">
+        <span class="input-label">Identification Card Number</span>
+        <input type="tel" placeholder="" ng-model="idCardNumber">
+      </label>
+    </form>
+    <button id="signUp-button3" class="button button-balanced  button-block" ng-click="register(name, email, password, phoneNumber, idNumber, signUpAsChef, signupAsCustomer)">Sign Up</button>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+
+<ion-view title="Create an Account" id="page6">
+  <ion-content padding="true" class="has-header">
+    <form id="createAnAccount-form12" class="list">
+      <ion-list id="createAnAccount-list2">
+        <label class="item item-input" id="createAnAccount-input16">
+          <input type="text" placeholder="First Name" ng-model="user.personFirstName">
+        </label>
+        <label class="item item-input" id="createAnAccount-input17">
+          <input type="text" placeholder="Last Name" ng-model="user.personLastName">
+        </label>
+        <label class="item item-input" id="createAnAccount-input17">
+          <input type="text" placeholder="Email" ng-model="user.email">
+        </label>
+        <label class="item item-input" id="createAnAccount-input18">
+          <input type="text" placeholder="Password" ng-model="user.password">
+        </label>
+        <label class="item item-input" id="createAnAccount-input19">
+          <input type="tel" placeholder="Phone Number" ng-model="user.phoneNumber">
+        </label>
+<!--         <ion-checkbox ng-model="isChecked">Sign up as Chef</ion-checkbox>
+ -->        <label class="item item-input" id="createAnAccount-input20">
+          <input type="text" placeholder="Identification Number" ng-model="user.identificationNumber">
+        </label>
+      </ion-list>
+      <button id="createAnAccount-button6" class="button button-balanced  button-block" ng-click="signUpUser(user)">Sign up</button>
+    </form>
+  </ion-content>
+</ion-view>
