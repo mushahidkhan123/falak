@@ -149,17 +149,13 @@ function ($scope, $stateParams, $state, $firebase, sharedList, $firebaseArray, $
 
 	 	usersInArrayForm.$loaded().then(function(){
 	 		angular.forEach(usersInArrayForm, function(user){
-	 			console.log(user.$id + "   " + dishInfo.dishUserId);
-  	 			if(user.$id == dishInfo.dishUserId) {
+   	 			if(user.$id == dishInfo.dishUserId) {
   	 				var usersDishes = user['dishes']['index'];
   	 				angular.forEach(usersDishes, function(dish){
   	 					if(dish.name == dishInfo.dishName) {
   	 						$scope.imageUrl = dish.imageUrl;
   	 						$scope.name = dish.name;
   	 						$scope.price = dish.price;
-  	 						console.log(dish.imageUrl);	
-
-							  	 						// set the rate and max variables
 							  $scope.rating = {};
 							  $scope.rating.rate = dish['averageRating'];
 							  $scope.rating.max = 5;
@@ -169,38 +165,8 @@ function ($scope, $stateParams, $state, $firebase, sharedList, $firebaseArray, $
  
 }
  	 			}) 
-	 		}) 
+	 		})
+	 		}]); 
 
-	 	$scope.openReviews = function() {
-	 		console.log("Opening reviews");
-	 			 		$scope.thanos = "LOLLL";
-			 $ionicModal.fromTemplateUrl('my-modal.html', {
-		    scope: $scope,
-		    animation: 'slide-in-up'
-		  }).then(function(modal) {
-		    $scope.modal = modal;
-		  });
-		  $scope.openModal = function() {
-		    $scope.modal.show();
-		  };
-		  $scope.closeModal = function() {
-		    $scope.modal.hide();
-		  };
-		  // Cleanup the modal when we're done with it!
-		  $scope.$on('$destroy', function() {
-		    $scope.modal.remove();
-		  });
-		  // Execute action on hide modal
-		  $scope.$on('modal.hidden', function() {
-		    // Execute action
-		  });
-		  // Execute action on remove modal
-		  $scope.$on('modal.removed', function() {
-		    // Execute action
-		  });
-
-	 	}
-  }]);
-
-
+	  
  

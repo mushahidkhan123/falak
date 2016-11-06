@@ -1,4 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
 <style>
 ul.rating li {
   display: inline;
@@ -10,32 +12,51 @@ ul.rating li {
 ul.rating li i {
   font-size: 30px;
 }
+ 
 </style>
 
 
 
-
+<body>
 <ion-view style=" text-align:left; font-family:'Ubuntu', sans-serif;" title="Dish Information" id="page9">
-<ion-nav-bar class="bar-balanced">
+ <ion-nav-bar class="bar-balanced">
+  
 
-  <ion-content padding="true" class="has-header">
-      <img ng-src="{{imageUrl}}" width="100%" height="50%"><br>
-    <h5 style=" text-align:left; font-family:'Ubuntu', sans-serif;" id="page-heading1" style="color:#000000;">{{name}} - {{price}}</h5>
+
+<ion-tabs class="tabs-icon-bottom"> 
+
+  <ion-tab title="About" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+        <ion-content padding="true" class="has-header">
+
+    <img ng-src="{{imageUrl}}" width="100%" height="30%" style="margin-top:100px;"><br>
+
+    <div class ="row">
+    <div class ="col col-80"><h4 style=" text-align:left; font-family:'Ubuntu', sans-serif;" id="page-heading1" style="color:#000000;">{{name}} - {{price}}</h4></div>
+    <div class ="col col-20"><div class="col col-10"><i class ="icon ion-ios-heart-outline" style="font-size:30px;color:red;"></i> </div></div></div>
     <rating readonly="readOnly" ng-model="rating.rate" max="rating.max"></rating>
     <button  id="page-button12" class="button button-balanced  button-block"><p style="font-family:'Ubuntu', sans-serif; color:white;">Order Now!</p></button>
-    <button ng-click="openReviews()" style ="font-family:'Ubuntu', sans-serif;"id="page-button11" class="button button-energized  button-block"><p style="font-family:'Ubuntu', sans-serif; color:white;">Check out Reviews</p></button>
   </ion-content>
-</ion>
-</ion-view>
-<script id="my-modal.html" type="text/ng-template">
-  <ion-modal-view>
-    <ion-header-bar>
-      <h1 class="title">Reviews</h1>
-    </ion-header-bar>
-    <ion-content>
-     <p> {{thanos}}</p>
+  </ion-tab>
+
+  <ion-tab title="Reviews" icon-on="ion-ios-chatboxes" icon-off="ion-ios-chatboxes-outline">
+          <ion-content padding="true" class="has-header">
+       <ion-item style="margin-top:100px;">
+         <ion-label>Long Description</ion-label>
+         <ion-textarea rows="6" placeholder="enter long description here..."></ion-textarea>
+       </ion-item>
+     </ion-content>
+  </ion-tab>
+
+  <ion-tab title="Chef" icon-on="ion-ios-person" icon-off="ion-ios-person-outline">
+    <!-- Tab 3 content -->
+  </ion-tab>
+
+</ion-tabs>
 
 
-    </ion-content>
-  </ion-modal-view>
-</script>
+
+  </ion-view>
+</ion-nav-bar>
+ 
+</body>
+ 

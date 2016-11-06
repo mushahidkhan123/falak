@@ -17,7 +17,7 @@ angular.module('app.routes', [])
   })
 
   .state('login', {
-    url: '/page7',
+    url: '/home',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
@@ -34,6 +34,6 @@ angular.module('app.routes', [])
   })
 //$urlRouterProvider.otherwise('/page7')
 
-  
+ 
 
 });
