@@ -4,13 +4,15 @@
 <style>
 ul.rating li {
   display: inline;
-  border: 0px;
   background: none;
   padding: 5px 10px;
-  color: yellow;
-}
+ }
 ul.rating li i {
   font-size: 30px;
+}
+
+.reviewStars{
+  font-size: 17px;
 }
  
 </style>
@@ -18,45 +20,44 @@ ul.rating li i {
 
 
 <body>
-<ion-view style=" text-align:left; font-family:'Ubuntu', sans-serif;" title="Dish Information" id="page9">
- <ion-nav-bar class="bar-balanced">
-  
+  <ion-view style=" text-align:left; font-family:'Ubuntu', sans-serif;" title="Dish Information" id="page9">
+    <ion-nav-bar class="bar-balanced">
 
+      <ion-tabs class="tabs-default tabs-icon-top">
+        <ion-tab title="Dish" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+          <ion-view>
+          <ion-content>
+            <div class = "row" style="">
+              <div class ="col col-100"><img ng-src="{{imageUrl}}" width="100%" height="100%"></div>
+            </div>
 
-<ion-tabs class="tabs-icon-bottom"> 
+            <div clas ="row">
+             <div class ="col col-100">
+                <h5 style=" text-align:left; font-family:'Ubuntu', sans-serif;" id="page-heading1" style="color:#000000;">Dish Name: {{name}}</h5>
+                <h5 style=" text-align:left; font-family:'Ubuntu', sans-serif;" id="page-heading1" style="color:#000000;">Price: {{price}}</h5>
+             </div>
+            </div>
 
-  <ion-tab title="About" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-        <ion-content padding="true" class="has-header">
-
-    <img ng-src="{{imageUrl}}" width="100%" height="30%" style="margin-top:100px;"><br>
-
-    <div class ="row">
-    <div class ="col col-80"><h4 style=" text-align:left; font-family:'Ubuntu', sans-serif;" id="page-heading1" style="color:#000000;">{{name}} - {{price}}</h4></div>
-    <div class ="col col-20"><div class="col col-10"><i class ="icon ion-ios-heart-outline" style="font-size:30px;color:red;"></i> </div></div></div>
-    <rating readonly="readOnly" ng-model="rating.rate" max="rating.max"></rating>
-    <button  id="page-button12" class="button button-balanced  button-block"><p style="font-family:'Ubuntu', sans-serif; color:white;">Order Now!</p></button>
-  </ion-content>
-  </ion-tab>
-
-  <ion-tab title="Reviews" icon-on="ion-ios-chatboxes" icon-off="ion-ios-chatboxes-outline">
-          <ion-content padding="true" class="has-header">
-       <ion-item style="margin-top:100px;">
-         <ion-label>Long Description</ion-label>
-         <ion-textarea rows="6" placeholder="enter long description here..."></ion-textarea>
-       </ion-item>
-     </ion-content>
-  </ion-tab>
-
-  <ion-tab title="Chef" icon-on="ion-ios-person" icon-off="ion-ios-person-outline">
-    <!-- Tab 3 content -->
-  </ion-tab>
-
-</ion-tabs>
-
-
-
-  </ion-view>
-</ion-nav-bar>
+            <div class ="row">
+              <div class="col col-10"><i class ="icon ion-ios-heart-outline" style="font-size:30px;color:red;"></i> </div>&nbsp&nbsp
+              <div class ="col col- 90"> <rating readonly="readOnly" ng-model="rating.rate" max="5"></rating></div>
+            </div>
  
+          </ion-content>
+          </ion-view>
+          <!-- Tab 1 content -->
+        </ion-tab>
+
+        <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+          <!-- Tab 2 content -->
+        </ion-tab>
+
+        <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+          <!-- Tab 3 content -->
+        </ion-tab>
+
+      </ion-tabs>
+    </ion-nav-bar>
+  </ion-view>
 </body>
  

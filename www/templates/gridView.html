@@ -1,4 +1,5 @@
-<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+ <script src="jquery-3.1.1.min.js"></script>
+
 <style>
 ul.rating li {
   display: inline;
@@ -8,54 +9,106 @@ ul.rating li {
   color: yellow;
 }
 ul.rating li i {
-  font-size: 25px;
+  font-size: 21px;
 }
+
+.popover{
+	height:100px;
+	margin-top: 50px;
+}
+
+ 
 </style>
-<ion-view style="font-family:'Ubuntu', sans-serif; " title="Falak" id="page8">
-<ion-nav-bar class="bar-balanced">
-  <ion-content padding="true" class="has-header" style="font-family:'Ubuntu', sans-serif; ">
+<script>
+$(document).ready(function(){
+resizeDiv();
+});
 
-    
-  
-		 <div class = "row" ng-repeat="item in allUsersAndDishes" >
-		 	<div class = "col col-100" style="background-color:white;"> 
-		 		<div> <p style=" text-align:left; font-family:'Ubuntu', sans-serif;">{{item["name"]}} - {{item["price"]}}</p>  </div>
-		 		<img ng-click="goToThisDishPage($event)" ng-src="{{item['imageUrl']}}" width="100%" id="{{item['id'] }}" ><br>
-		 	<div class ="row">
- 		 	
- 		 	<div class="col col-10"><i class ="icon ion-ios-heart-outline" style="font-size:30px;color:red;"></i> </div>&nbsp&nbsp
- 		 	<div class ="col col- 80"> <rating readonly="readOnly" ng-model="item['averageRating']" max="5"></rating>
-</div>
- 		 	</div>
-		 		<br>
-		 		</div>
+function resizeDiv() {
+	console.log("gegeg");
+vph = $(window).height()/2;
+$('.dishPic').css({‘height’: vph);
+}
+</script>
 
 
- 				<!-- <div class ="row" ng-repeat="item in allUsersAndDishes">
- 					<div class ="col col-100">
- 						<div class= "row">
-		 					<div class="col col-70">
-		 						<strong><p style=" text-align:left; font-family:'Ubuntu', sans-serif;">{{item["name"]}} - {{item["price"]}}</p></strong>
-		 					</div>
-		 					<div class ="col col-20"></div>
-		 					<div class ="col col-10">
-								<i style="text-align:right;"class="icon ion-android-more-vertical"></i>
-		 					</div>
- 						</div>
+<ion-view style="font-family:'Ubuntu', sans-serif; " title="FALAK" id="page8" >
+	<ion-nav-bar class="bar-balanced">	</ion-nav-bar>
 
- 						<div class ="row">
- 							<div class ="col col-100">
- 								<img ng-src="{{item['imageUrl']}}" width="100%">
- 							</div>
- 						</div>
- 						<div class ="row">
- 							<div class = "col col">
- 								<i class ="icon ion-ios-heart-outline" style="font-size:30px;color:red;"></i><!-- <p style=" text-align:left; font-family:'Ubuntu', sans-serif;">{{item["likes"]}} Likes </p> -->
- 							</div>
- 							 
- 						</div>
- 					</div>
- 				</div></br> -->
-		 	 </ion>
-	</ion>
-</ion>
+		    
+		<ion-tabs class="tabs-balanced tabs-icon-top">
+
+		  <ion-tab title="Favourite Dishes"  style="font-family:'Ubuntu', sans-serif; "  icon-on="ion-ios-heart" icon-off="ion-ios-heart-outline">
+			  <ion-view>
+	          	<ion-content>
+	      
+
+	      		</ion-content>
+	      	 </ion-view>
+	      </ion-tab>
+
+		  <ion-tab title="All Dishes" icon-on="ion-fork"  style="font-family:'Ubuntu', sans-serif; " icon-off="ion-fork">
+		    <!-- Tab 2 content -->
+		    <ion-view>
+	
+		    	 
+	          	<ion-content style="background-color:#fafafa;">
+
+					<div class = "row" ng-repeat="item in allUsersAndDishes" style="background-color:white; border-radius:5px; border:1px solid #fafafa;">
+										 	<div class = "col col-100" style="background-color:white;"> 
+										 	<div class ="row">
+										 		<div class="col col-90"><div>  <h5 style=" text-align:left; font-family:'Ubuntu', sans-serif;">{{item["name"]}} - {{item["price"]}}</h5>  </div></div>
+										 		<div class="col col-10"><i ng-click="openPopover($event)" class="icon ion-android-more-vertical"></i></div>
+										 	</div> 
+ 										 	 <img style="height:225px; " class="dishPic" ng-src="{{item['imageUrl']}}" width="100%"  id="{{item['id'] }}" > 
+ 										 	<div class ="row">
+ 									 		 	<div  class="col col-10"><i class ="icon ion-ios-heart-outline"  ng-style="likedButtonStyle" ng-click="dishLiked({{item}})"></i> </div>&nbsp&nbsp
+									 		 	<div class ="col col- 90"> <rating readonly="readOnly" ng-model="item['averageRating']" max="5"></rating></div>
+								 		 	</div>
+								 		 <!-- 	<div class ="row">
+								 		 		<div class="col col-100">
+								 		 			<p style="font-size:12px;">Time Required to Cook: {{item['timeRequiredToCook']}}</p>
+								 		 		</div>
+								 		 	</div> -->
+										 	</div>
+					 				</div>
+	      		</ion-content>
+	      	 </ion-view>
+		  </ion-tab>
+
+		  <ion-tab title="Profile" icon-on="ion-person"  style="font-family:'Ubuntu', sans-serif; " icon-off="ion-person">
+		    <!-- Tab 3 content -->
+		    <ion-view>
+	          	<ion-content>
+	      
+
+	      		</ion-content>
+	      	 </ion-view>
+		  </ion-tab>
+
+		</ion-tabs>
+
+
+ 
+</ion-view>
+
+ <script id="my-popover.html" type="text/ng-template">
+ <div style="margin-right:100px;">
+  <ion-popover-view>
+      <ul class="list">
+	    <li class="item">
+	      <h4 style="text-align:center; font-family:'Ubuntu', sans-serif;">Order Now!</h4>
+	    </li>
+	    <li class="item">
+	      <h4 style="text-align:center; font-family:'Ubuntu', sans-serif;">Checkout Reviews</h4>
+	    </li>
+	    <li class="item">
+	     <h4 style="text-align:center; font-family:'Ubuntu', sans-serif;"> Checkout Chef Profile</h4>
+	    </li>
+</ul>
+  </ion-popover-view>
+  </div>
+</script>
+
+
+

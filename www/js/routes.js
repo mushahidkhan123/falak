@@ -17,7 +17,7 @@ angular.module('app.routes', [])
   })
 
   .state('login', {
-    url: '/home',
+    url: '/',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
@@ -32,7 +32,7 @@ angular.module('app.routes', [])
     templateUrl: 'templates/individualDishPage.html',
     controller: 'individualDishPageCtrl'
   })
-//$urlRouterProvider.otherwise('/page7')
+$urlRouterProvider.otherwise('/')
 
  
 
